@@ -1,0 +1,38 @@
+<!-- <a href="#">test</a> -->
+<br />
+
+<!-- <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Set Appointment
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+
+      <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <col>
+          <th scope="col">Today</th>
+            <% 5.times do |i| %>
+              <tr>
+                <% i = i + 7 %>
+                <% begin %>
+                  <% @schedule.check_availability!(time: Date.today + i.hours, amount: 1) %>
+                <% rescue %>
+                  <% next %>
+                <% end %>
+                <td><%= link_to "#{i}:00am", schedule_post_path(hour: i), method: :post, class: 'btn btn-primary' %></td>
+              </tr>
+          <% end %>
+        </col>
+      </tbody>
+    </table>
+
+    <%= week_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  <!-- </div>
+</div> -->

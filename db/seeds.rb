@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+@user = User.create!(
+  email: 'user@example.com',
+  password: '123456'
+)
+
+@client = Client.create!(
+  email: 'client@example.com'
+)
+
+
+puts "Seed finished"
+puts "#{User.count} users created"
+puts "#{Client.count} clients created"
+puts "#{Schedule.count} schedule created"
