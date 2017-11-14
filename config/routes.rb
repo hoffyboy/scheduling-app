@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'schedule/index'
 
-  get 'schedule/show'
+  resources 'clients', only: [:new, :create]
 
-  post 'schedule/post'
+  resources 'events', only: [:index]
 
   get 'welcome/index'
 

@@ -15,8 +15,14 @@
   email: 'client@example.com'
 )
 
+@event = Event.new
+@event.schedule = IceCube::Schedule.new(Date.today, duration: 1.hour)
+@event.schedule.add_recurrence_rule IceCube::Rule.daily.hour_of_day(9,10,11,12,13,14,15,16)
+@event.capacity = 1
+@event.save!
 
+puts @event
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Client.count} clients created"
-puts "#{Schedule.count} schedule created"
+# puts "#{Schedule.count} schedule created"
