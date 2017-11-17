@@ -4,15 +4,10 @@ module EventHelper
     @available_days = []
 
     7.times do |i|
-      if @event.schedule.occurs_on?(Date.today + i)
-        @available_days << Date.today + i
+      if @event.schedule.occurs_on?(Date.tomorrow + i)
+        @available_days << Date.tomorrow + i
       end
     end
-  #   @event.schedule.occurrences_between(Time.now, Date.today + 7 ).each do |i|
-  #     @available_days << i.to_date
-  #   end
-  #
-  #   @available_days = @available_days.uniq
   end
 
   def check_availability_times
@@ -30,7 +25,6 @@ module EventHelper
 
     @selected_days_occurrences.each do |time|
       if @event.check_availability(time: time, amount: 1) == true
-        #  || (@client.bookings.first and @client.bookings.first.time == time)
           @available_times << time
       end
     end

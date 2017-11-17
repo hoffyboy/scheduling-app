@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources 'events', only: [:index]
 
+  resources 'watches', only: [:new, :create]
+
   get 'welcome/index'
 
   get 'welcome/about'

@@ -13,7 +13,7 @@
     <div class="container">
       <ul class="nav nav-tabs">
         <li><%= link_to "Home", welcome_index_path %></li>
-        <li><%= link_to "Schedule Tour", events_path %></li>
+        <li><%= link_to "Schedule", events_path %></li>
         <li><%= link_to "About", welcome_about_path %></li>
         <div class="pull-right user-info">
           <% if user_signed_in? %>
@@ -25,6 +25,7 @@
           <% end %>
         </div>
       </ul>
+      <br>
 
       <% if flash[:notice] %>
         <div class="alert alert-success">

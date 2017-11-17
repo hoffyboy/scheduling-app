@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112084019) do
+ActiveRecord::Schema.define(version: 20171117063339) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -19,8 +19,6 @@ ActiveRecord::Schema.define(version: 20171112084019) do
     t.integer  "booker_id"
     t.integer  "amount"
     t.text     "schedule"
-    t.datetime "time_start"
-    t.datetime "time_end"
     t.datetime "time"
     t.datetime "created_at"
     t.index ["bookable_type", "bookable_id"], name: "index_acts_as_bookable_bookings_bookable"
@@ -29,6 +27,9 @@ ActiveRecord::Schema.define(version: 20171112084019) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",      null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +58,18 @@ ActiveRecord::Schema.define(version: 20171112084019) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "watches", force: :cascade do |t|
+    t.string   "brand"
+    t.string   "model"
+    t.string   "condition"
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "USD", null: false
+    t.integer  "client_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["client_id"], name: "index_watches_on_client_id"
   end
 
 end

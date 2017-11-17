@@ -2,34 +2,32 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    flash[:time] = params[:time].to_time
-    p flash[:time].strftime('%I:%M%P - %A, %B %d, %Y')
+    @client.build_watch
+    flash[:time] ||= params[:time]&.to_time
+    flash.keep
   end
 
   def create
+    @client = Client.find_or_create_by(email: params[:client][:email])
     @client = Client.new(client_params)
     @event = Event.first
-    @existing_client = Client.find_by(email: params[:client][:email])
-    @existing_client_booking_time = @existing_client.try(:bookings).first.try(:time)
+    @client_booking_time = @client&.bookings&.first&.time
 
-
-
-    if @client.save
+    if @client_booking_time.try(:>, Time.now)
+      @client.update(first_name: params[:client][:first_name], last_name: params[:client][:last_name], phone: params[:client][:phone] )
+      @client.bookings.destroy_all
       @client.book!(@event, time: flash[:time].to_time, amount: 1)
-      flash[:notice] = "New client saved. Confirmed for #{flash[:time].to_time.strftime('%l:%M%P on %A, %B %d, %Y')}."
+
+      flash[:notice] = "A booking with the email address #{@client.email} has previously been scheduled for #{@client_booking_time.to_time.strftime('%l:%M%P on %A, %B %d, %Y')}. The booking has been rescheduled for #{flash[:time].to_time.strftime('%I:%M%P on %A, %B %d, %Y')}."
       redirect_to events_path
 
-    elsif !@client.save && @existing_client_booking_time.try(:>, Time.now)
-        flash[:notice] = "A booking with the email address #{@existing_client.email} has previously been scheduled for #{@existing_client_booking_time.to_time.strftime('%l:%M%P on %A, %B %d, %Y')}. The booking has been rescheduled to #{flash[:time].to_time.strftime('%I:%M%P on %A, %B %d, %Y')}."
-        redirect_to events_path
-
-    elsif !@client.save && @existing_client
-      @existing_client.book!(@event, time: flash[:time].to_time, amount: 1)
+    elsif @client.save
+      @client.book!(@event, time: flash[:time].to_time, amount: 1)
       flash[:notice] = "Confirmed for #{flash[:time].to_time.strftime('%l:%M%P on %A, %B %d, %Y')}."
       redirect_to events_path
 
     else
-      flash.now[:alert] = "There was an error confirming your booking. Please try again."
+      flash[:time] = flash.now[:time]
       render :new
     end
   end
@@ -37,7 +35,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:email)
+    params.require(:client).permit(:first_name, :last_name, :email, :phone, watch_attributes: [:brand, :model, :condition, :price])
   end
 
 end
