@@ -4,7 +4,7 @@ class CreateWatches < ActiveRecord::Migration[5.0]
       t.string :brand
       t.string :model
       t.string :condition
-      t.monetize :price
+      t.string :price
       t.references :client, foreign_key: true
 
       t.timestamps

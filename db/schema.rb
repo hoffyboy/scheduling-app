@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117063339) do
+ActiveRecord::Schema.define(version: 20171122033755) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20171117063339) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "venue_name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.integer  "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_locations_on_client_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -64,11 +76,10 @@ ActiveRecord::Schema.define(version: 20171117063339) do
     t.string   "brand"
     t.string   "model"
     t.string   "condition"
-    t.integer  "price_cents",    default: 0,     null: false
-    t.string   "price_currency", default: "USD", null: false
+    t.string   "price"
     t.integer  "client_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_watches_on_client_id"
   end
 
