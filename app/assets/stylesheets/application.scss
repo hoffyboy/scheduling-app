@@ -15,6 +15,14 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body {
+   background: url("213663.jpg");
+   // -webkit-background-size: cover;
+   // -moz-background-size: cover;
+   // background-size: cover;
+   // -o-background-size: cover;
+ }
+
 .nav-link {
   color: white;
   font-size: 20px;
