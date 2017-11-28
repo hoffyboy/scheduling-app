@@ -59,7 +59,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'bootstrap-sass'
 gem 'acts_as_bookable', '>= 0.1.4'
 gem 'ice_cube_chosko', '~> 0.1.0'
 gem 'simple_calendar', '~> 2.0'
