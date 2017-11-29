@@ -6,25 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@user = User.create!(
-  email: 'user@example.com',
-  password: '123456'
-)
-
-@client = Client.create!(
-  email: 'client@example.com',
-  first_name: 'Jon',
-  last_name: 'Voight',
-  phone: '555-555-5555'
-)
-
-@watch = Watch.create!(
-  brand: 'Rolex',
-  model: 'Submariner',
-  condition: 'New',
-  price: 10000,
-  client_id: 1
-)
+# @client = Client.create!(
+#   email: 'client@example.com',
+#   first_name: 'Jon',
+#   last_name: 'Voight',
+#   phone: '555-555-5555'
+# )
+#
+# @watch = Watch.create!(
+#   brand: 'Rolex',
+#   model: 'Submariner',
+#   condition: 'New',
+#   price: 10000,
+#   client_id: 1
+# )
 
 @event = Event.new
 @event.schedule = IceCube::Schedule.new(Date.today, duration: 1.hour)
@@ -35,8 +30,7 @@
 
 puts @event
 puts "Seed finished"
-puts "#{User.count} user created"
-puts "#{Client.count} client created"
-puts "#{Watch.count} watch created"
+# puts "#{Client.count} client created"
+# puts "#{Watch.count} watch created"
 puts "#{Event.count} event created"
 # puts "#{Schedule.count} schedule created"
