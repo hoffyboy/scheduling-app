@@ -1,21 +1,29 @@
-<% if !params[:date] %>
-  <h3>Select a Day</h3>
+<div class="event-buttons-container">
   <br>
-  <% @available_days.each do |i| %>
-    <%= link_to "#{i.strftime('%a, %b %d')}", new_event_path(date: i), method: :get, class: 'btn btn-primary' %>
-    <br />
-    <br />
+  <% if !params[:date] %>
+  <div class="event-header-container">
+    <h3 class="main-header">SET UP A MEETING  <br> CHOOSE A DATE AND TIME </h3>
+  </div>
+    <h3 class="form-label">SELECT A DAY</h3>
+    <br>
+    <% @available_days.each do |i| %>
+      <%= link_to "#{i.strftime('%a, %b %d')}", new_event_path(date: i), method: :get, class: 'btn btn-success' %>
+      <br />
+      <br />
+    <% end %>
   <% end %>
-<% end %>
 
-<% if params[:date] %>
-  <h3><%= params[:date].to_time.strftime('%A') %></h3>
-  <h4><%= params[:date].to_time.strftime('%B %d, %Y') %></h4>
-  <h3>Select a Time</h3>
-  <br>
-  <% @available_times.each do |i| %>
-    <%= link_to "#{i.to_time.strftime("%I:%M %p")}", events_path(time: i.to_time), method: :post, class: 'btn btn-primary' %>
-    <br />
-    <br />
+  <% if params[:date] %>
+    <div class="event-header-container">
+      <h3 class="main-header"><%= params[:date].to_time.strftime('%A') %></h3>
+      <h4 class="sub-header"><%= params[:date].to_time.strftime('%B %d, %Y') %></h4>
+    </div>
+    <h3 class="form-label">SELECT A TIME</h3>
+    <br>
+    <% @available_times.each do |i| %>
+      <%= link_to "#{i.to_time.strftime("%I:%M %p")}", events_path(time: i.to_time), method: :post, class: 'btn btn-success' %>
+      <br />
+      <br />
+    <% end %>
   <% end %>
-<% end %>
+</div>

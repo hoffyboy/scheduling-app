@@ -18,7 +18,7 @@
  body {
    background: image-url("bg_image.jpg");
    min-height: 700px;
-   min-width: 500px;
+   // min-width: 400px;
    // -webkit-background-size: cover;
    // -moz-background-size: cover;
    // background-size: cover;
@@ -27,12 +27,13 @@
 
 .nav-link {
   color: white;
-  font-size: 20px;
+  font-size: 1rem;
   font-family: 'Open-Sans', sans-serif;
+  text-transform: uppercase;
 }
 
 .nav-link:hover {
-  color: #2ecc71;
+  color: #5cb85c;
 }
 
 #logo {
@@ -41,4 +42,36 @@
   display: left;
   left: 0;
   position: absolute;
+}
+
+.form-label {
+  color: white;
+}
+
+#page-content {
+  padding: 20px;
+}
+
+.btn-success {
+  width: 100%;
+  height: 60px;
+  display: inline-block;
+  // border: 2px solid #fff;
+  line-height: 50px;
+  // padding: 0px 65px;
+  // border-radius: 0;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Open-Sans', sans-serif;
+  position: relative;
+  // background-color: transparent;
+}
+
+.event-buttons-container {
+  margin: auto;
+  position: relative;
+  width: 360px;
+  display: block;
+  text-align: center;
 }

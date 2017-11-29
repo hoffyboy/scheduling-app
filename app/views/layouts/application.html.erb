@@ -8,20 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Raleway" rel="stylesheet">
-    <!-- <link href="https://blackrockdigital.github.io/startbootstrap-full/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <body>
     <!-- <div class="container"> -->
     <nav class="nav justify-content-end">
       <%= image_tag('time_place_logo.png', id: 'logo') %>
-      <!-- <a class="nav-link" href="">Home</a> -->
       <a><%= link_to "Home", root_path, class: 'nav-link' %></a>
       <a><%= link_to "Schedule", new_client_path, class: 'nav-link' %></a>
       <!-- <a><%= link_to "Contact", class: 'nav-link' %></a> -->
 
-      <!-- <a class="nav-link" href="#">Schedule</a>
-      <a class="nav-link" href="#">Contact</a> -->
     </nav>
-
+    <br>
+    <br>
+    <div id="page-content">
       <% if flash[:notice] %>
         <div class="alert alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -34,10 +32,6 @@
         </div>
       <% end %>
       <%= yield %>
-    <!-- </div> -->
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- <script src="https://blackrockdigital.github.io/startbootstrap-full/vendor/jquery/jquery.min.js"></script> -->
-    <!-- <script src="https://blackrockdigital.github.io/startbootstrap-full/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+    </div>
   </body>
 </html>
