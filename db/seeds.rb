@@ -25,7 +25,6 @@
 @event.schedule = IceCube::Schedule.new(Date.today, duration: 1.hour)
 @event.schedule.add_recurrence_rule IceCube::Rule.daily.hour_of_day(9,11,13,15)
 @event.capacity = 1
-@event.user_id = 1
 @event.save!
 
 puts @event

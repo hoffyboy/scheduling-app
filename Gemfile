@@ -58,10 +58,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
 gem 'acts_as_bookable', '>= 0.1.4'
 gem 'ice_cube_chosko', '~> 0.1.0'
-gem 'simple_calendar', '~> 2.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
-gem 'money-rails'
