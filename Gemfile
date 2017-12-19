@@ -38,7 +38,6 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'sqlite3'
 end
 
 group :development do
@@ -62,3 +61,4 @@ gem 'acts_as_bookable', '>= 0.1.4'
 gem 'ice_cube_chosko', '~> 0.1.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
+gem 'sqlite3'
