@@ -1,22 +1,13 @@
 <%= f.fields_for :watch do |g| %>
   <div class="row">
     <div class="form-group col-sm-4">
-      <%= g.label :brand, class: 'form-label' %>
-      <%= g.text_field :brand, class: 'form-control' %>
+      <%= g.label :Primary_choice, class: 'form-label' %>
+      <%= g.text_field :primary, class: 'form-control' %>
     </div>
     <div class="form-group col-sm-4">
-      <%= g.label :model, class: 'form-label' %>
-      <%= g.text_field :model, class: 'form-control' %>
+      <%= g.label :Secondary, class: 'form-label' %>
+      <%= g.text_field :secondary, class: 'form-control' %>
     </div>
   </div>
-  <div class="row">
-    <div class="form-group col-sm-4">
-      <%= g.label :condition, class: 'form-label' %>
-      <%= g.text_field :condition, class: 'form-control' %>
-    </div>
-    <div class="form-group col-sm-4">
-      <%= g.label :price, class: 'form-label' %>
-      <%= g.text_field :price, class: 'form-control' %>
-    </div>
-  </div>
+å
 <% end %>

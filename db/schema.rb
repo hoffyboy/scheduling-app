@@ -54,10 +54,8 @@ ActiveRecord::Schema.define(version: 20171122033755) do
   end
 
   create_table "watches", force: :cascade do |t|
-    t.string   "brand"
-    t.string   "model"
-    t.string   "condition"
-    t.string   "price"
+    t.string   "primary"
+    t.string   "secondary"
     t.integer  "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

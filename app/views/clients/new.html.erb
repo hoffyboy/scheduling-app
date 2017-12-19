@@ -12,7 +12,7 @@
           </ul>
         </div>
       <% end %>
-      <h2 class="form-label">Tell us about yourself:</h2>
+      <h2 class="form-label">Contact information:</h2>
       <div class="row">
         <div class="form-group col-sm-4">
           <%= f.label :first_name, class: 'form-label' %>
@@ -34,11 +34,11 @@
         </div>
       </div>
       <br>
-      <h2 class="form-label">Tell us about your watch:</h2>
+      <h2 class="form-label">Choose from our collection:</h2>
         <%= render 'watches/watch_fields', f: f %>
         <br>
       <div class="form-group">
-        <%= f.submit "Set Schedule", class: "btn btn-success form-btn col-sm-8" %>
+        <%= f.submit "Complete", class: "btn btn-success form-btn col-sm-8" %>
       </div>
     <% end %>
   </div>

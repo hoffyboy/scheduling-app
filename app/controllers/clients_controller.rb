@@ -11,7 +11,8 @@ class ClientsController < ApplicationController
 
     if @client.save
       session[:client_id] = @client.id
-      redirect_to new_event_path
+      flash[:notice] = "After your information is processed you will hear back from us shortly."
+      redirect_to welcome_index_path
     else
       render :new
     end
@@ -21,7 +22,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :phone, watch_attributes: [:client_id, :brand, :model, :condition, :price])
+    params.require(:client).permit(:first_name, :last_name, :email, :phone, watch_attributes: [:client_id, :primary, :secondary])
   end
 
 end
