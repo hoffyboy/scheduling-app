@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117063339) do
+ActiveRecord::Schema.define(version: 20171029081348) do
 
   create_table "acts_as_bookable_bookings", force: :cascade do |t|
     t.string   "bookable_type"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20171117063339) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
+    t.string   "primary"
+    t.string   "secondary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,15 +41,6 @@ ActiveRecord::Schema.define(version: 20171117063339) do
     t.integer  "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "watches", force: :cascade do |t|
-    t.string   "primary"
-    t.string   "secondary"
-    t.integer  "client_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_watches_on_client_id"
   end
 
 end

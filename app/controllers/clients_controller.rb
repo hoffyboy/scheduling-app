@@ -2,7 +2,6 @@ class ClientsController < ApplicationController
 
   def new
     @client = Client.new
-    @client.build_watch
   end
 
   def create
@@ -22,7 +21,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :phone, watch_attributes: [:client_id, :primary, :secondary])
+    params.require(:client).permit(:first_name, :last_name, :email, :phone, :primary, :secondary)
   end
 
 end

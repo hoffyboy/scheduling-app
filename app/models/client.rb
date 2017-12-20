@@ -1,8 +1,5 @@
 class Client < ApplicationRecord
-  has_one :watch, dependent: :destroy
-  has_one :location, dependent: :destroy
 
-  accepts_nested_attributes_for :watch
   acts_as_booker
 
   before_save { self.email = email.downcase if email.present? }
@@ -13,9 +10,10 @@ class Client < ApplicationRecord
   length: { minimum: 3, maximum: 254 }
 
   validates :first_name, presence: true
-
   validates :last_name, presence: true
-
+  validates :phone, presence: true
+  validates :primary, presence: true
+  validates :secondary, presence: true
 
   # validates_format_of :phone,
   #   with: /\d{3}-\d{3}-\d{4}/,
