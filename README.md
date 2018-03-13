@@ -1,24 +1,34 @@
-# README
+# Scheduling-app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple scheduling application which clients can use to schedule appointments with users
 
-Things you may want to cover:
 
-* Ruby version
+The app is deployed on Heroku: https://time-place.herokuapp.com/
 
-* System dependencies
 
-* Configuration
+The source code is here on GitHub: https://github.com/hoffyboy/scheduling-app
 
-* Database creation
 
-* Database initialization
+# Setup and Configuration
 
-* How to run the test suite
+  **Languages and Frameworks:** Ruby on Rails and Bootstrap
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+  **Ruby version:** 2.4.1
 
-* ...
+
+  **Databases:** SQLite (Test, Development), PostgreSQL (Production)
+
+
+  **Development Tools and Gems include:**
+
+  + IceCube for creation of recurrence rules
+  + ActsAsBookable to allow resources to be booked by users
+
+
+  **To run Driven locally:**
+  + Clone the repository
+  + Run bundle install
+  + Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`
+  + Start the server using `rails server`
+  + Run the app on `localhost:3000`
